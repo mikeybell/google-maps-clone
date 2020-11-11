@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 // import { MapboxDirections } from '@mapbox/mapbox-gl-directions';
-import { TOKEN } from './token';
 import { NEW_YORK_CITY } from './constants';
 import './map.css';
 
-mapboxgl.accessToken = TOKEN;
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 export const Map = () => {
   const mapContainer = useRef(null);
@@ -22,7 +21,7 @@ export const Map = () => {
     map.addControl(nav);
 
     // const directions = new MapboxDirections({
-    //   accessToken: mapboxgl.accessToken
+    //   accessToken: process.env.REACT_APP_MAPBOX_TOKEN
     // });
 
     // map.addControl(directions, 'top-left');
